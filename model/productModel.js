@@ -15,7 +15,7 @@ const productSchema  = mongoose.Schema({
     },
     sellerID:{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Supermarket',
+        ref: 'Store',
         required: true
     },
     image_Url:{
@@ -26,16 +26,25 @@ const productSchema  = mongoose.Schema({
         type:String,
         required:true
     },
-    discountPrice:{
+    category:{
         type:String,
+        required:true
+    },
+    discountPeriod:{
+        type:Number,
         required:false
     },
-    discounted :{
-        type:String,
+    discountPrice:{
+        type:Number,
+        required:false
+    },
+    isDiscounted :{
+        type:Boolean,
+        default:false,
         required:false
     },
     discountPercentage:{
-        type:String,
+        type:Number,
         required:false
     },
     dateCreated:{
