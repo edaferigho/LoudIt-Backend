@@ -1,6 +1,7 @@
+
 const mongoose = require('mongoose')
 
-const shopSchema = mongoose.Schema({
+const storeSchema = mongoose.Schema({
     fullName:{
         type:String,
         required:true
@@ -45,6 +46,9 @@ const shopSchema = mongoose.Schema({
 
 //Creating the supermarket model
 
-const shop = mongoose.model('Shops',shopSchema)
+const store = mongoose.model('Store',storeSchema)
 
-module.exports = shop
+module.exports = store
+
+
+
