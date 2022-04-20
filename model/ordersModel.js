@@ -18,7 +18,14 @@ const orderSchema = mongoose.Schema({
         type:Date,
         default:Date.now()
     }
-})
+},
+{
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
+
+}
+
+)
 
 //creating a model for orders
 

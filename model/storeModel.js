@@ -38,6 +38,11 @@ const storeSchema = mongoose.Schema({
         type:String,
         required:false
     },
+    isActive:{
+        type:Boolean,
+        default:false,
+        required:false
+    },
     dateCreated:{
         type:Date,
         default:Date.now()
