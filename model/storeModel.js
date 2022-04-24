@@ -24,7 +24,7 @@ const storeSchema = mongoose.Schema({
     },
     bankDetails:{
         type:String,
-        required:true
+        required:false
     },
     profilePicture:{
         type:String,
