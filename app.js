@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const userRoute = require('./route/userRoute');
 const storeRoute = require('./route/storeRoute');
+const productRouter = require('./route/productRoute')
 const db = require('./util/dbConfig');
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 //Routes
-app.use('/products',productRouter)
+app.use('api/products',productRouter)
 app.use('/api/users',userRoute)
 app.use('/api/stores', storeRoute)
 
