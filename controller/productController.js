@@ -80,6 +80,7 @@ exports.getProductsByCategory = async (req, res) => {
     }
 }
 // search product by name
+// TODO: Search Product by name not yet working
 exports.searchByName = async (req, res) => {
     const search = req.query.name
     try {
@@ -104,12 +105,12 @@ exports.searchByName = async (req, res) => {
 exports.addProduct = async (req, res) => {
     let product = { productName, description, price, qty, image_Url, category } = req.body
     console.log(product)
-    const storeId = 'testId2345'
+    const storeId = req.store._id
     const qtyNum = Number.parseInt(qty)
     const priceNum = Number.parseFloat(price)
 
     try {
-        const createdProduct = await Product.create({ ...product, qty:qtyNum, price:priceNum })
+        const createdProduct = await Product.create({ ...product, qty:qtyNum, price:priceNum,storeId })
         if (createdProduct) {
             res.status(201).json({
                 'message': 'product created',
@@ -124,7 +125,7 @@ exports.addProduct = async (req, res) => {
 }
 // Remove product
 exports.removeProducts = async (req, res) => {
-    const storeId = req.store._Id
+    const storeId = req.store._id
     const productId = req.params.productId
     
     try {
@@ -146,7 +147,7 @@ exports.removeProducts = async (req, res) => {
 //Product Update
 exports.updateProduct = async (req, res) => {
     const productId = req.params
-    const storeId = req.store._Id
+    const storeId = req.store._id
     const product = { productName, description, price, qty, category, image_Url } = req.body
     try {
         product = await Product.findOneAndUpdate({ _Id: productId, storeId }, ...product, {new:true})
@@ -164,18 +165,39 @@ exports.updateProduct = async (req, res) => {
 
 //Update Product Inventory
 exports.updateInventory = async(req, res) => {
-    const noOfItems = req.body;
-    const productId = req.params
+    const noOfItems = Number.parseInt(req.body.noOfItems);
+    const productId = req.params.productId
     let product
     try {
-        let product = await Product.findById(productId)
+
+        product = await Product.findById(productId)
+        console.log(product.qty)
         if (product) {
-            product.qty -= noOfItems
+            let qty = product.qty
+            qty = Number.parseInt(qty)
+            if (qty > 0 && qty >= noOfItems) {
+                console.log(noOfItems)
+            qty -= noOfItems
+            
+            product.qty = qty
             product.save()
             res.status(200).json({
                 'message': 'product update successful',
                 product
             })
+            }
+            else if (qty < noOfItems && qty>0) {
+                res.status(200).json({
+                'message': `Only ${qty} items remaining`,
+                product
+            })
+            }
+            else {
+                res.status(200).json({
+                'message': 'Product is out of stock!',
+            })
+            }
+            
         }
         else {
             res.status(404).json({
@@ -185,6 +207,6 @@ exports.updateInventory = async(req, res) => {
     
     }
     catch (e) {
-        console.log('Error updating product!')
+       console.error(e)
     }
     }

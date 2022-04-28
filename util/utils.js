@@ -32,8 +32,8 @@ exports.verifyPassword = async(password,passwordHashed)=>{
     return await bycrypt.compare(password, passwordHashed)
 }
 
-exports.genToken = async (_id) => {
-    return await jwt.sign({ _id }, process.env.SECRET, { expiresIn: process.env.Jwt_Expires_In })
+exports.genToken = async (_id,secret) => {
+    return await jwt.sign({ _id }, secret, { expiresIn: process.env.Jwt_Expires_In })
 
 }
 

@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}))
 
 
 //Routes
-app.use('api/products',productRouter)
+app.use('/api/products',productRouter)
 app.use('/api/users',userRoute)
 app.use('/api/stores', storeRoute)
 
