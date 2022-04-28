@@ -2,19 +2,34 @@ const express = require('express');
 require('dotenv').config();
 const userRoute = require('./route/userRoute');
 const storeRoute = require('./route/storeRoute');
+const productRouter = require('./route/productRoute')
 const db = require('./util/dbConfig');
 const app = express();
 
 db();
+// Middlewares
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
-app.use(express.urlencoded({ extended: true }))
+
+//Routes
+app.use('/api/products',productRouter)
+app.use('/api/users',userRoute)
+app.use('/api/stores', storeRoute)
+
+
 
 app.get('/', (req, res) => {
     res.json('This is the home page')
 });
 
-app.use('/api/users',userRoute)
-app.use('/api/stores',storeRoute)
+
+app.all('*',(req, res)=> {
+    res.json('Invalid Route')
+})
+
+
+
 
 const PORT = process.env.PORT || 9000;
 

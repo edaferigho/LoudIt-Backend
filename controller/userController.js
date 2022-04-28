@@ -75,7 +75,7 @@ exports.UsersLogin = async (req, res) => {
             const hashedPassword = userFound.password
             if (await utils.verifyPassword(password, hashedPassword)) {
                 //3. then generate token for user
-                const token = await utils.genToken(userFound._id)
+                const token = await utils.genToken(userFound._id,process.env.JWT_SECRET_STORE)
                 res.status(200).json({
                     user: userFound,
                     token,

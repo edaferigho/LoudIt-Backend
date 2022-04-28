@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-
 const productSchema  = mongoose.Schema({
     productName:{
         type:String,
@@ -10,20 +9,20 @@ const productSchema  = mongoose.Schema({
         required:true
     },
     price:{
-        type:String,
+        type:Number,
         required:true
     },
-    sellerID:{
+    storeId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Store',
-        required: true
+        required: false
     },
     image_Url:{
         type:Array,
         required:true
     },
-    Qty:{
-        type:String,
+    qty:{
+        type:Number,
         required:true
     },
     category:{
