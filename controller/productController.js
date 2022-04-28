@@ -175,7 +175,7 @@ exports.updateInventory = async(req, res) => {
         if (product) {
             let qty = product.qty
             qty = Number.parseInt(qty)
-            if (qty > 0 && qty >= noOfItems) {
+            if (product.isAvailable && qty >= noOfItems) {
                 console.log(noOfItems)
             qty -= noOfItems
             
@@ -193,6 +193,7 @@ exports.updateInventory = async(req, res) => {
             })
             }
             else {
+                product.isAvailable = false
                 res.status(200).json({
                 'message': 'Product is out of stock!',
             })

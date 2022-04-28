@@ -3,9 +3,26 @@ const bycrypt = require('bcrypt')
 const Store = require('../model/storeModel')
 const jwt = require('jsonwebtoken')
 
+
+
+//Todo: Add this validator to the store and user controller
+// Email  and password Validator
+exports.validateEmail=(field, value)=>{
+    const emailRegEx = new RegExp('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/')
+    const passwordRegEx = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$')
+    let response
+    if (field === 'email') {
+        response= emailRegEx.test(value)
+    }
+    else {
+        response = passwordRegEx.test(value)
+    }
+}
+//Todo: Add a password validator
+
 // FOR USERS
 // checking if email is existing 
-exports.emailExist = async()=>{
+exports.emailExist = async(email)=>{
     const findEmail = await Users.findOne({ email })
     if(findEmail){
         return true
@@ -14,7 +31,7 @@ exports.emailExist = async()=>{
 }
 
 // checking if username exits
-exports.phoneNumberExist = async()=>{
+exports.phoneNumberExist = async(phoneNumber)=>{
     const phoneNumberFound = await Users.findOne({ phoneNumber })
     if (phoneNumberFound) {
         return true
@@ -38,7 +55,7 @@ exports.genToken = async (_id,secret) => {
 }
 
 // FOR STORES
-exports.existingEmail = async () => {
+exports.existingEmail = async (email) => {
     const foundEmail = await Store.findOne({ email })
     if (foundEmail) {
         return true
@@ -46,7 +63,7 @@ exports.existingEmail = async () => {
     else return false
 }
 
-exports.existingContact = async () => {
+exports.existingContact = async (phoneNumber) => {
     const foundContact = await Store.findOne({ phoneNumber })
     if (foundContact) {
         return true
@@ -54,7 +71,7 @@ exports.existingContact = async () => {
     else return false
 }
 
-exports.StoreName = async()=>{
+exports.StoreName = async(fullName)=>{
     const storeNameFound = await Store.findOne({fullName })
     if(storeNameFound){
         return true
