@@ -1,13 +1,19 @@
 const mongoose = require('mongoose')
 
 const orderSchema = mongoose.Schema({
-    product:{
-        type:String,
+    orderItems:{
+        type:Array,
         required:true
     },
-    Qty:{
-        type:String,
+    totalAmount:{
+        type:Number,
         required:true
+    },
+    status: {
+        type: String,
+        enum:['PENDING','PROCESSING','SHIPPED','DELIVERED'],
+        required: true,
+        default:'PENDING'
     },
     user_id:{
         type: mongoose.Schema.Types.ObjectId,
@@ -27,8 +33,8 @@ const orderSchema = mongoose.Schema({
 
 )
 
-//creating a model for orders
+//creating a model for order
 
-const orders = mongoose.model('Orders', orderSchema)
+const order= mongoose.model('Order', orderSchema)
 
-module.exports = orders
+module.exports = order
