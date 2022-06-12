@@ -13,14 +13,14 @@ app.use(express.urlencoded({extended:true}))
 
 
 //Routes
-app.use('/api/products',productRouter)
-app.use('/api/users',userRoute)
-app.use('/api/stores', storeRoute)
+app.use('/api/v1/products',productRouter)
+app.use('/api/v1/users',userRoute)
+app.use('/api/v1/stores', storeRoute)
 
 
 
 app.get('/', (req, res) => {
-    res.json('LoudIt version 1.0 Backend is currently live! and the docs are currently in progress')
+    res.json('LoudIt version 1.0 is currently live! and the docs are currently in progress')
 });
 
 
