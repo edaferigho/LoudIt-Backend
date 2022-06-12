@@ -20,7 +20,7 @@ app.use('/api/stores', storeRoute)
 
 
 app.get('/', (req, res) => {
-    res.json('This is the home page')
+    res.json('LoudIt version 1.0 Backend is currently live! and the docs are currently in progress')
 });
 
 

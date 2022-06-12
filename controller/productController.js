@@ -2,7 +2,9 @@ const { type } = require('express/lib/response');
 const Product = require('../model/productModel')
 
 
-// get all products
+//@desc get all products
+//@route /products
+//@access public
 exports.getAllProducts = async (req, res) => {
     try {
         const products = await Product.find({});
@@ -17,7 +19,9 @@ exports.getAllProducts = async (req, res) => {
        console.error(e) 
     }
 }
-//get product(id)
+//@desc getprodu ct by id
+//@route /products/:productId
+//@access public
 exports.getProduct = async (req, res) => {
     const product_id = req.params.productId;
     try {
@@ -39,7 +43,9 @@ exports.getProduct = async (req, res) => {
         console.log(error)
     }
 }
-// get product for a particular store
+//@desc get all products for a particular store
+//@route /products
+//@access public
 exports.getProductsByStore = async (req, res) => {
     const storeId = req.params
     const products = await Product.find({ sellerID: storeId })
@@ -211,3 +217,5 @@ exports.updateInventory = async(req, res) => {
        console.error(e)
     }
     }
+
+
