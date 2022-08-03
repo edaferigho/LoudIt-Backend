@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "53807319-268a-4ba0-b264-e532fa651505",
+		"name": "Users",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\":\"Michael\",\r\n    \"lastName\":\"Samba\",\r\n    \"email\":\"edafem@gmail.com\",\r\n    \"password\":\"1234\",\r\n    \"address\":\"Edubi Street\",\r\n    \"phoneNumber\":\"3444546576\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://loudit.herokuapp.com/api/v1/users/register",
+					"protocol": "https",
+					"host": [
+						"loudit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"edafem@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://loudit.herokuapp.com/api/v1/users/login",
+					"protocol": "https",
+					"host": [
+						"loudit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

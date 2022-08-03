@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "e932a6d8-bd17-4a80-888b-d2f96fcf4cde",
+		"name": "Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storeName\":\"Gabbs Stores\",\r\n    \"email\":\"edaferigho2@gmail.com\",\r\n    \"password\":\"1234\",\r\n    \"address\":\"Edubi Street\",\r\n    \"phoneNumber\":\"344444585554486865757\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/stores/signup",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"stores",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"edafe3m@gmail.com\",\r\n    \"password\":\"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/stores/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"stores",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,252 @@
+{
+	"info": {
+		"_postman_id": "db7b4c0b-b4cd-4d5e-ab70-77d786e8e3da",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/v1/products",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sender",
+						"value": "STORE",
+						"type": "default"
+					},
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU4ZGU2NDYwOTY5ODllYmVmYmQ1NGMiLCJpYXQiOjE2NTk0Mjg1OTcsImV4cCI6MTY1OTQzNTc5N30.fqZ2R6-SwbUhqFNhsTirepq2RuuKKCSMGAWoJb8jLyQ",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"productName\":\"Iphone 13\",\r\n    \"description\":\"This is an Iphone X but its not an Iphone 12 Pro Max\",\r\n    \"price\":\"34000\",\r\n    \"image_Url\":[\"Iphone Image1, Iphone Image2\"],\r\n    \"category\":\"phones\",\r\n    \"qty\":\"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/products",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"category\":\"phones\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/api/v1/products/category",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products By Store",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/v1/products/store/62e8de646096989ebefbd54c",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"store",
+						"62e8de646096989ebefbd54c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/products/62e8e1ccf5457799e7955e8a",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"62e8e1ccf5457799e7955e8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU4ZGU2NDYwOTY5ODllYmVmYmQ1NGMiLCJpYXQiOjE2NTk0Mjg1OTcsImV4cCI6MTY1OTQzNTc5N30.fqZ2R6-SwbUhqFNhsTirepq2RuuKKCSMGAWoJb8jLyQ",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "STORE",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/products/62e8e1ccf5457799e7955e8a",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"62e8e1ccf5457799e7955e8a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product Review",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0MzM0NDEsImV4cCI6MTY1OTQ0MDY0MX0.5bL2zb7uh4ItYnXLqoI-lZp7CXj-e9vhHXvgVF6yK7g",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"comment\":\"This is very good Product\",\r\n    \"rating\":\"5\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:9000/api/v1/products/62e8e280f5457799e7955e92/review",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"62e8e280f5457799e7955e92",
+						"review"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Top Rated Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/api/v1/products/tops",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"tops"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

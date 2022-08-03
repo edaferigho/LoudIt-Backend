@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "26e0161a-0756-482a-8386-8dd920879fe6",
+		"name": "Cart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Product To Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\":\"2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9000/api/v1/cart/62e8e25df5457799e7955e8f/add",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"62e8e25df5457799e7955e8f",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Cart",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:9000/api/v1/cart/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove from Cart",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:9000/api/v1/cart/6262bced4103e630a49784d8/remove",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"cart",
+						"6262bced4103e630a49784d8",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Cart",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
