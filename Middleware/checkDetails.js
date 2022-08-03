@@ -12,15 +12,17 @@ exports.checkDetails = (req,res,next)=>{
 }
 
 
-//Admin details check
+//Store details check
 
 exports.storeCheckDetails = (req,res,next)=>{
     const body = req.body
-    if(!body.fullName||!body.email||!body.password||!body.address||!body.phoneNumber){
+    console.log(body);
+    if(!body.storeName||!body.email||!body.password||!body.address||!body.phoneNumber){
         res.status(400).json({
             status:'Bad Request',
             message:'Please enter required details'
         })
     }
+    
     next()
 }

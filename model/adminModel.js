@@ -3,15 +3,15 @@ const mongoose = require('mongoose')
 const adminSchema = mongoose.Schema({
     firstName:{
         type:String,
-        required:true
+        required:false
     },
     lastName: {
         type: String,
-        required: true
+        required: false
     },
     phoneNumber: {
         type: String,
-        required: true
+        required: false
     },
     email: {
         type: String,
@@ -21,11 +21,7 @@ const adminSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    admin_Id:{
-        type: mongoose.Schema.Types.ObjectId,
-         ref: 'Admin',
-         required: true
-    },
+   
     create_date: {
         type: Date,
         default:Date.now()

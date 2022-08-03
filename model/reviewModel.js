@@ -1,22 +1,25 @@
 const mongoose = require('mongoose')
 
 const reviewSchema = mongoose.Schema({
-    stars:{
+    rating:{
         type:Number,
         required:true
     },
-    user_id:{
+    comment: {
+        type: String,
+        required:true
+    },
+    user:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
         required:true
-    },
-    ownerId :{
-        type:mongoose.Schema.Types.ObjectId,
-        ref: '',
-        required:true
     }
+    
 
 },
+    {
+        timeStamps:true
+    },
 {
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
@@ -25,8 +28,8 @@ const reviewSchema = mongoose.Schema({
 
 )
 
-// creating a Review Model
+// // creating a Review Model
 
-const review = mongoose.model('Review',reviewSchema)
+// const review = mongoose.model('Review',reviewSchema)
 
-module.exports = review 
+module.exports = reviewSchema

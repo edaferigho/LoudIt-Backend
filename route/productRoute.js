@@ -1,19 +1,21 @@
 const express = require('express');
 
 const productController = require('../controller/productController')
-const auth = require('../Middleware/auth')
+const authMiddleware = require('../Middleware/auth')
 const router = express.Router();
 
 
-router.get('/search', productController.searchByName)
-router.put('/updateInventory/:productId',productController.updateInventory)
-router.get('/:productId', productController.getProduct)
-router.get('/:storeId', productController.getProductsByStore)
+// Unprotedcted Routes
+router.put('/updateInventory/:productId', productController.updateInventory)
 router.get('/category', productController.getProductsByCategory)
+router.get('/tops', productController.getTopProducts)
+router.get('/:productId', productController.getProduct)
+router.get('/store/:storeId', productController.getProductsByStore)
 router.get('/', productController.getAllProducts)
-
-router.post('/', auth,productController.addProduct)
-router.delete('/:productId',auth, productController.removeProducts)
-router.put('/:productId',auth,productController.updateProduct)
+// Protected Routes
+router.post('/:productId/review', authMiddleware.auth, productController.createReview)
+router.post('/', authMiddleware.auth,authMiddleware.sellerAuth,productController.addProduct)
+router.delete('/:productId',authMiddleware.auth,authMiddleware.sellerAuth, productController.removeProducts)
+router.put('/:productId',authMiddleware.auth,authMiddleware.sellerAuth,productController.updateProduct)
 
 module.exports = router;

@@ -6,9 +6,9 @@ const Utils = require('../util/utils')
 exports.storeRegistration = async (req, res) => {
     //1. get details from the user
     const body = req.body
-    const user = { fullName, email, password, address, phoneNumber } = body
+    const user = { storeName, email, password, address, phoneNumber } = body
 
-
+    console.log(user);
     //2.check if email exist
 
     if (await Utils.existingEmail(email)) {
