@@ -1,11 +1,15 @@
 const mongoose = require('mongoose')
 
-const orderSchema = mongoose.Schema({
+const cartSchema = mongoose.Schema({
     products: [
         {
             productId: {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'Products',
+                required: true
+            },
+            price: {
+                type: Number,
                 required: true
             },
             qty: {
@@ -15,29 +19,15 @@ const orderSchema = mongoose.Schema({
             }
         }
     ],
-    orderTotal:{
+    cartTotal:{
         type:Number,
-        required:true
-    },
-    status: {
-        type: String,
-        enum:['NOT PAID','PENDING','PROCESSING','SHIPPED','DELIVERED','CANCELLED'],
         required: true,
-        default:'PENDING'
-    },
-    isPaid: {
-        type: Boolean,
-        required: true,
-        default:false
+        default:0
     },
     user_id:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Users',
         required: true
-    },
-    shippingAddress: {
-        type: String,
-        required:true
     },
     
     dateCreated:{
@@ -53,8 +43,8 @@ const orderSchema = mongoose.Schema({
 
 )
 
-//creating a model for order
+//creating a model for cart
 
-const order= mongoose.model('Order', orderSchema)
+const cart= mongoose.model('Cart', cartSchema)
 
-module.exports = order
+module.exports = cart

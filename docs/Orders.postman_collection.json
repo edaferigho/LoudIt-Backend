@@ -1,0 +1,103 @@
+{
+	"info": {
+		"_postman_id": "e46738d4-e41a-4b5a-abb5-0316a642d6db",
+		"name": "Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:9000/api/v1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Orders",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:9000/api/v1/orders/myorders",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"orders",
+						"myorders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmU0NjcxNTZiMjYxY2MyZDQyNTFhNjQiLCJpYXQiOjE2NTk0OTYzODIsImV4cCI6MTY1OTUwMzU4Mn0.VvSEWzTvXrcjPc1AAb50Tmkd0GeKc7C56QBcakZ8zpU",
+						"type": "default"
+					},
+					{
+						"key": "sender",
+						"value": "USER",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "localhost:9000/api/v1/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"api",
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

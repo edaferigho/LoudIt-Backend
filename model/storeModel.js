@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 
 const storeSchema = mongoose.Schema({
-    fullName:{
+    storeName:{
         type:String,
         required:true
     },
@@ -38,10 +38,30 @@ const storeSchema = mongoose.Schema({
         type:String,
         required:false
     },
+    enscrowAmount: {
+        type: Number,
+        required: false,
+        default:0.0
+    },
+    newOrders: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    totalOrders: {
+        type: Number,
+        required: false,
+        default: 0
+    },
+    successfulOrders: {
+        type: Number,
+        required: false,
+        default: 0
+    },
     isActive:{
         type:Boolean,
         default:false,
-        required:false
+        required:true
     },
     dateCreated:{
         type:Date,

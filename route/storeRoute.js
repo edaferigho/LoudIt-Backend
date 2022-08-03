@@ -1,16 +1,15 @@
 const express =require ('express')
-const midware = require('../Middleware/checkDetails')
-const auth = require('../controller/storeController')
+const middleware = require('../Middleware/checkDetails')
+const storeController = require('../controller/storeController')
 
 
 
 const Router = express.Router()
 
-Router.use(express.urlencoded({extended:true}))
-Router.use(express.json())
 
 
-Router.post('/signup',midware.storeCheckDetails,auth.storeRegistration)
-Router.post('/login',auth.StoreLogin)
+
+Router.post('/signup',middleware.storeCheckDetails,storeController.storeRegistration)
+Router.post('/login',storeController.StoreLogin)
 
 module.exports = Router
