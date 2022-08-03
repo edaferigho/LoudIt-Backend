@@ -27,7 +27,7 @@ app.use('/api/v1/orders',orderRoute)
 
 
 app.get('/', (req, res) => {
-    res.json('LoudIt version 1.0 is currently live! You can get a progressive API Documentation at https://documenter.getpostman.com/view/16965892/UzkcRYB7')
+    res.json('<html><h1>LoudIt version 1.0 is currently live!</h1><p>You can get a progressive API Documentation at</p> <a>https://documenter.getpostman.com/view/16965892/UzkcRYB7</a></html>')
 });
 
 
